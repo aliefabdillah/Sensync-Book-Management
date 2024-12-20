@@ -5,6 +5,16 @@ module.exports = {
   },
   extends: 'airbnb-base',
   rules: {
+    'import/extensions': [
+      'error',
+      'always',
+      {
+        js: 'always',
+        jsx: 'always',
+        ts: 'always',
+        tsx: 'always',
+      },
+    ],
     'no-underscore-dangle': 0,
     'no-param-reassign': 0,
     'no-return-assign': 0,
