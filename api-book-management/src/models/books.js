@@ -20,7 +20,7 @@ export default (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Books',
-    timestamps: true
+    timestamps: true,
   });
   return Books;
 };
