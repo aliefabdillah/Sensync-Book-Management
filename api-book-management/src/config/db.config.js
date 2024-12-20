@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Sequelize } from 'sequelize';
-import config from './config.js';
+import config from './sequelize.config.js';
 
 const env = process.env.NODE_ENV || 'development';
 const dbConfig = config[env];
