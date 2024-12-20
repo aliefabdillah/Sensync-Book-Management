@@ -5,6 +5,7 @@ module.exports = {
   },
   extends: 'airbnb-base',
   rules: {
+    'no-unused-vars': "warn",
     'import/extensions': [
       'error',
       'always',
