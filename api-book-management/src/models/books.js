@@ -13,12 +13,14 @@ export default (sequelize, DataTypes) => {
     }
   }
   Books.init({
+    id: DataTypes.STRING,
     title: DataTypes.STRING,
     author: DataTypes.STRING,
     year: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Books',
+    timestamps: true
   });
   return Books;
 };
