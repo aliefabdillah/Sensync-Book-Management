@@ -29,9 +29,9 @@ import db from '../config/db.config.js';
 export const Books = db.define('Books', {
   id: {
     allowNull: false,
-    autoIncrement: true,
     primaryKey: true,
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING(36),
+    defaultValue: DataTypes.UUIDV4,
   },
   title: {
     type: DataTypes.STRING,
@@ -40,7 +40,7 @@ export const Books = db.define('Books', {
     type: DataTypes.STRING,
   },
   year: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
   },
   createdAt: {
     allowNull: false,

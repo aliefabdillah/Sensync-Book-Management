@@ -4,9 +4,9 @@ module.exports = {
     await queryInterface.createTable('Books', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING(36),
+        defaultValue: Sequelize.UUIDV4,
       },
       title: {
         type: Sequelize.STRING,
@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       year: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

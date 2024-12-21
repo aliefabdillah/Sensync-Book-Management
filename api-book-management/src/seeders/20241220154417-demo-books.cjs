@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+const { v4: uuidv4 } = require('uuid');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -12,6 +15,7 @@ module.exports = {
   */
     await queryInterface.bulkInsert('Books', [
       {
+        id: uuidv4(),
         title: 'Harry Potter',
         author: 'JK Rowling',
         year: '2006',
@@ -19,6 +23,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuidv4(),
         title: 'Attack on Titan',
         author: 'Hajime Isayama',
         year: '2008',
@@ -26,6 +31,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: uuidv4(),
         title: 'Laskar Pelangi',
         author: 'Andrea Hirata',
         year: '2010',
