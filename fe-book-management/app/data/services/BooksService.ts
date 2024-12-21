@@ -33,11 +33,35 @@ export class BooksService {
         return res.data;
       })
       .catch(function (error) {
-        console.log(error)
         if(error.response) {
           const errorResponse = {
             code: error.response.data.code,
             message: error.response.data.message,
+          }
+          return errorResponse
+        } else {
+          const errorResponse = {
+            code: error.code,
+            message: error.message,
+            name: error.name
+          }
+          return errorResponse;
+        }
+      });
+    }
+
+  createBooks = (body: unknown) => {
+    return this.instance
+      .post(`/`, body)
+      .then((res) => {
+        return res.data;
+      })
+      .catch(function (error) {
+        console.log(error)
+        if(error.response) {
+          const errorResponse = {
+            code: error.response.status,
+            message: error.response.statusText,
           }
           return errorResponse
         } else {
