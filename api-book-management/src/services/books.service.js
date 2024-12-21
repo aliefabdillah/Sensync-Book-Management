@@ -46,9 +46,21 @@ async function update(bookId, updateBody) {
   return new Response.ApiSuccess(httpStatus.CREATED, 'UPDATE BOOK SUCCESS', updatedBook)
 }
 
+async function remove(bookId) {
+  const deletedBook = await Books.findByPk(bookId);
+
+  if (!deletedBook) {
+    throw new Response.ApiError(httpStatus.NOT_FOUND, 'BOOK NOT FOUND')
+  }
+
+  await deletedBook.destroy()
+  return new Response.ApiSuccess(httpStatus.OK, 'DELETE BOOK SUCCESS')
+}
+
 export default {
   getAll,
   getById,
   create,
   update,
+  remove,
 };

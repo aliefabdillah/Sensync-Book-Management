@@ -1,6 +1,4 @@
 import booksService from '../services/books.service.js';
-import Response from '../utils/Response.js';
-import httpStatus from 'http-status'
 
 async function getAllBooks(req, res, next) {
   try {
@@ -38,9 +36,19 @@ async function updateBook(req, res, next) {
   }
 }
 
+async function deleteBook(req, res, next) {
+  try {
+    const result = await booksService.remove(req.params.id)
+    res.status(result.statusCode).send(result)
+  } catch (error) {
+    next(error)
+  }
+}
+
 export default {
   getAllBooks,
   getBooksById,
   createBook,
   updateBook,
+  deleteBook,
 }

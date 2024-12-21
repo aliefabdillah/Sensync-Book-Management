@@ -8,5 +8,6 @@ router.get('/', bookController.getAllBooks);
 router.get('/:id', bookController.getBooksById);
 router.post('/', middlewares.validate('/create-book'), bookController.createBook)
 router.patch('/:id', middlewares.validate('/update-book'), bookController.updateBook)
+router.delete('/:id', bookController.deleteBook)
 
 export default router
