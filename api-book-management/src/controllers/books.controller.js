@@ -29,8 +29,18 @@ async function createBook(req, res, next) {
   }
 }
 
+async function updateBook(req, res, next) { 
+  try {
+    const bookResult = await booksService.update(req.params.id, req.body)
+    res.status(bookResult.statusCode).send(bookResult)
+  } catch(error) {
+    next(error)
+  }
+}
+
 export default {
   getAllBooks,
   getBooksById,
-  createBook
+  createBook,
+  updateBook,
 }

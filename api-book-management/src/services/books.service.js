@@ -24,7 +24,7 @@ async function getById(userId) {
   return new Response.ApiSuccess(httpStatus.OK, 'GET BOOK SUCESS', bookData)
 }
 
-async function create(body) { 
+async function create(body) {
   try {
     const createdBook = await Books.create(body)
     return new Response.ApiSuccess(httpStatus.CREATED, 'CREATE BOOK SUCCESS', createdBook)
@@ -33,8 +33,22 @@ async function create(body) {
   }
 }
 
+async function update(bookId, updateBody) {
+  const updatedBook = await Books.findByPk(bookId);
+
+  if (!updatedBook) {
+    throw new Response.ApiError(httpStatus.NOT_FOUND, 'BOOK NOT FOUND')
+  }
+
+  Object.assign(updatedBook, updateBody)
+  await updatedBook.save();
+
+  return new Response.ApiSuccess(httpStatus.CREATED, 'UPDATE BOOK SUCCESS', updatedBook)
+}
+
 export default {
   getAll,
   getById,
   create,
+  update,
 };
