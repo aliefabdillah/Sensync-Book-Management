@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import daisyui  from 'daisyui';
 
 export default {
   content: [
@@ -12,7 +13,14 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        lexend_deca: ["var(--font-lexend-deca)"],
+        roboto: ["var(--font-roboto)"],
+        poppins: ["var(--font-poppins)"]
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    daisyui,
+  ],
 } satisfies Config;
