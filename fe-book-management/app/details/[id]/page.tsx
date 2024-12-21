@@ -128,7 +128,7 @@ export default function DetailsPage() {
           </div>
         </div>
       )}
-      <DeleteModal />
+      <DeleteModal bookData={bookData}/>
     </BasePage>
   );
 }
