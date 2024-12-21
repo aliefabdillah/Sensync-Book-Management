@@ -4,7 +4,7 @@ import AddIcon from "@mui/icons-material/Add";
 import Link from "next/link";
 import FormBook from "./FormBook";
 import { booksService } from "../data/services";
-import { Books } from "../types/Books";
+import { Book } from "../types/Book";
 import { ApiError } from "../types/ApiError";
 import Loading from "./Loader/Loading";
 import EmptyPage from "./EmptyPage";
@@ -12,7 +12,7 @@ import ErrorToast from "./ErrorToast";
 
 export default function ListCard() {
   const [isFormShow, setIsFormShow] = useState(false);
-  const [booksData, setBooksData] = useState<Books[]>([]);
+  const [booksData, setBooksData] = useState<Book[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isToastOpen, setIsToastOpen] = useState(false);
   const [errorData, setErrorData] = useState<ApiError>({
@@ -32,7 +32,7 @@ export default function ListCard() {
     setIsLoading(true);
     const response = await booksService.getListBooks();
     if (response.data) {
-      const booksResult: Books[] = response.data;
+      const booksResult: Book[] = response.data;
       setBooksData(booksResult);
         
     } else {
