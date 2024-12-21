@@ -1,3 +1,5 @@
+import ListCard from "./components/ListCard";
+
 export default function Home() {
   return (
     <div className="h-screen flex justify-center">
@@ -5,6 +7,9 @@ export default function Home() {
         <p className="text-4xl text-center font-lexend_deca font-extrabold mt-4">
           📚 Book Management System
         </p>
+        <div className="bg-green-400 w-full mt-8">
+          <ListCard />
+        </div>
       </div>
     </div>
   );
