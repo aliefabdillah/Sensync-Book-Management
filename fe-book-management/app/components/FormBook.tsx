@@ -5,7 +5,8 @@ interface FormBookProps {
 }
 
 export default function FormBook({ getIsFormShowingState }: FormBookProps) {
-  const handleBackButton = (isShow: boolean) => {
+  const handleBackButton = (event: React.MouseEvent<HTMLButtonElement>, isShow: boolean) => {
+    event.preventDefault(); 
     const confirmBack = confirm(
       "Apakah Anda yakin ingin kembali? Perubahan data tidak akan tersimpan."
     );
@@ -69,8 +70,8 @@ export default function FormBook({ getIsFormShowingState }: FormBookProps) {
         </label>
         <div className="flex flex-row gap-2 justify-between mt-5">
           <button
-            onClick={() => handleBackButton(false)}
-            className="btn text-white"
+            onClick={(event) => handleBackButton(event, false)}
+            className="btn btn-outline btn-warning text-white"
           >
             Cancel
           </button>
