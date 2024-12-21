@@ -1,6 +1,6 @@
-export type Books = {
+export type Book = {
   id: string,
   title: string,
   author: string,
-  year: number,
+  year: string,
 }
