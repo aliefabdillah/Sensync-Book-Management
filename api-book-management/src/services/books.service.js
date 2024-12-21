@@ -24,7 +24,17 @@ async function getById(userId) {
   return new Response.ApiSuccess(httpStatus.OK, 'GET BOOK SUCESS', bookData)
 }
 
+async function create(body) { 
+  try {
+    const createdBook = await Books.create(body)
+    return new Response.ApiSuccess(httpStatus.CREATED, 'CREATE BOOK SUCCESS', createdBook)
+  } catch (error) {
+    throw new Response.ApiError(httpStatus.INTERNAL_SERVER_ERROR, error.message)
+  }
+}
+
 export default {
   getAll,
   getById,
+  create,
 };

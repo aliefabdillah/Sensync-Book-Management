@@ -20,7 +20,17 @@ async function getBooksById(req, res, next) {
   }
 }
 
+async function createBook(req, res, next) { 
+  try {
+    const bookResult = await booksService.create(req.body)
+    res.status(bookResult.statusCode).send(bookResult)
+  } catch {
+    next(error)
+  }
+}
+
 export default {
   getAllBooks,
-  getBooksById
+  getBooksById,
+  createBook
 }
