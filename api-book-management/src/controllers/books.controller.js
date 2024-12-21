@@ -4,7 +4,16 @@ import httpStatus from 'http-status'
 
 async function getAllBooks(req, res, next) {
   try {
-    const bookResult = await booksService.getAll();
+    const booksResult = await booksService.getAll();
+    res.status(booksResult.statusCode).send(booksResult);
+  } catch (error) {
+    next(error)
+  }
+}
+
+async function getBooksById(req, res, next) {
+  try {
+    const bookResult = await booksService.getById(req.params.id)
     res.status(bookResult.statusCode).send(bookResult);
   } catch (error) {
     next(error)
@@ -12,5 +21,6 @@ async function getAllBooks(req, res, next) {
 }
 
 export default {
-  getAllBooks
+  getAllBooks,
+  getBooksById
 }

@@ -15,6 +15,16 @@ async function getAll() {
   return new Response.ApiSuccess(httpStatus.OK, 'GET BOOKS SUCCESS', booksData);
 }
 
+async function getById(userId) {
+  const bookData = await Books.findByPk(userId)
+  if (!bookData) {
+    throw new Response.ApiError(httpStatus.NOT_FOUND, 'BOOKS NOT FOUND')
+  }
+
+  return new Response.ApiSuccess(httpStatus.OK, 'GET BOOK SUCESS', bookData)
+}
+
 export default {
   getAll,
+  getById,
 };
