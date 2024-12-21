@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import emojis from './emojis.js';
+import books from './books.js';
 
 const router = Router();
 
@@ -10,6 +10,6 @@ router.get('/', (req, res) => {
   });
 });
 
-router.use('/emojis', emojis);
+router.use('/books', books);
 
 export default router;
