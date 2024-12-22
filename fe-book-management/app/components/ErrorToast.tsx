@@ -31,7 +31,7 @@ export default function ErrorToast({
       {isOpen && (
         <div className="toast toast-end">
           <div className="alert alert-error">
-            <span className="text-white font-lexend_deca">{`${error.code}: ${error.message}`}</span>
+            <span className="text-white font-lexend_deca">{`${error.code} : ${error.message}`}</span>
           </div>
         </div>
       )}
