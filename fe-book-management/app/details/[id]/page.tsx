@@ -71,7 +71,7 @@ export default function DetailsPage() {
       />
       {isFormShow ? (
         <div className="w-full">
-          <FormBook getIsFormShowingState={handleBtnEditState} />
+          <FormBook getIsFormShowingState={handleBtnEditState} bookData={bookData}/>
         </div>
       ) : (
         <div className="w-2/3">
