@@ -17,12 +17,21 @@ export class BooksService {
         return res.data;
       })
       .catch(function (error) {
-        const errorResponse = {
-          code: 500,
-          message: error.message,
-          name: error.name
+        console.log(error)
+        if(error.response) {
+          const errorResponse = {
+            code: error.response.status,
+            message: error.response.statusText,
+          }
+          return errorResponse
+        } else {
+          const errorResponse = {
+            code: error.code,
+            message: error.message,
+            name: error.name
+          }
+          return errorResponse;
         }
-        return errorResponse;
       });
   };
 
@@ -33,10 +42,11 @@ export class BooksService {
         return res.data;
       })
       .catch(function (error) {
+        console.log(error)
         if(error.response) {
           const errorResponse = {
-            code: error.response.data.code,
-            message: error.response.data.message,
+            code: error.response.status,
+            message: error.response.statusText
           }
           return errorResponse
         } else {
@@ -57,7 +67,6 @@ export class BooksService {
         return res.data;
       })
       .catch(function (error) {
-        console.log(error)
         if(error.response) {
           const errorResponse = {
             code: error.response.status,
