@@ -6,6 +6,9 @@ import Response from '../utils/Response.js';
 async function getAll() {
   const booksData = await Books.findAll({
     attributes: ['id', 'title', 'year', 'author'],
+    order: [
+      ['createdAt', 'asc']
+    ]
   });
 
   if (!booksData) {
