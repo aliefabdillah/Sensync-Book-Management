@@ -75,7 +75,7 @@ export default function ListCard() {
             </div>
           ) : booksData.length == 0 && !isLoading ? (
             <div className="flex justify-center items-center p-8">
-              <EmptyPage item="Book" />
+              <EmptyPage item="Book" image="/no-results.png" size={300}/>
             </div>
           ) : (
             <div className="grid grid-cols-3 gap-4 gap-y-7 mt-10 px-4">
