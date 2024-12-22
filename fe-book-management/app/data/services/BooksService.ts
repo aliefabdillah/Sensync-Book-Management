@@ -75,6 +75,31 @@ export class BooksService {
       });
   };
 
+  editBooks = (body: unknown, id: string) => {
+    return this.instance
+      .patch(`/${id}`, body)
+      .then((res) => {
+        return res.data;
+      })
+      .catch(function (error) {
+        console.log(error)
+        if(error.response) {
+          const errorResponse = {
+            code: error.response.status,
+            message: error.response.statusText,
+          }
+          return errorResponse
+        } else {
+          const errorResponse = {
+            code: error.code,
+            message: error.message,
+            name: error.name
+          }
+          return errorResponse;
+        }
+      });
+  };
+
   deleteBooks = (id: string) => {
     return this.instance
       .delete(`/${id}`,)
