@@ -34,7 +34,6 @@ export default function ListCard() {
     if (response.data) {
       const booksResult: Book[] = response.data;
       setBooksData(booksResult);
-        
     } else {
       setErrorData({
         code: response.code,
@@ -75,22 +74,24 @@ export default function ListCard() {
             </div>
           ) : booksData.length == 0 && !isLoading ? (
             <div className="flex justify-center items-center p-8">
-              <EmptyPage item="Book" image="/no-results.png" size={300}/>
+              <EmptyPage item="Book" image="/no-results.png" size={300} />
             </div>
           ) : (
-            <div className="grid grid-cols-3 gap-4 gap-y-7 mt-10 px-4">
+            <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 gap-y-7 mt-10 px-4">
               {booksData.map((item, index) => (
                 <Link key={index} href={`/details/${item.id}`}>
                   <div
                     className="
-              card lg:card-side bg-gray-100 shadow-xl 
+              card bg-gray-100 shadow-xl min-h-full
               transnform transition-all duration-300 ease-in-out
               hover:scale-105 hover:shadow-2xl hover:cursor-pointer hover:text-white hover:bg-info
             "
                   >
                     <div className="card-body">
-                      <h2 className="card-title">{item.title}</h2>
-                      <p>{item.author}</p>
+                      <p className="card-title text-ellipsis overflow-hidden line-clamp-2">
+                        {item.title}
+                      </p>
+                      <p className="line-clamp-2">{item.author}</p>
                     </div>
                   </div>
                 </Link>

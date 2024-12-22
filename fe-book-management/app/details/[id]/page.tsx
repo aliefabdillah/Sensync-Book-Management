@@ -74,55 +74,55 @@ export default function DetailsPage() {
           <FormBook getIsFormShowingState={handleBtnEditState} bookData={bookData}/>
         </div>
       ) : (
-        <div className="w-2/3">
+        <div className="xl:w-2/3 lg:w-3/4 md:w-full">
           <div className="flex flex-row justify-between px-4">
             <button>
               <Link href={"/"} className="text-blue-400">
                 <HomeIcon style={{ fontSize: 30 }} />
               </Link>
             </button>
-            <div className="flex flex-row gap-3">
+            <div className="flex flex-row items-center gap-3">
               <button
                 onClick={() => handleBtnEditState(true)}
-                className="btn btn-warning text-white"
+                className="btn btn-warning md:btn-md btn-sm text-white"
               >
-                <EditIcon /> Edit
+                <EditIcon /> <span className="md:inline hidden" >Edit</span>
               </button>
               <button
                 onClick={handleBtnDelete}
-                className="btn btn-error text-white"
+                className="btn btn-error md:btn-md btn-sm text-white"
               >
-                <DeleteIcon /> Delete
+                <DeleteIcon /> <span className="md:inline hidden">Delete</span>
               </button>
             </div>
           </div>
           <div className="p-6 mt-8 w-full flex flex-col gap-3 outline rounded-xl outline-2 outline-gray-300">
             <p className="font-bold text-2xl">Book Data</p>
-            <div className="text-xl flex flex-row items-center gap-2">
-              <li className="w-1/4">Title</li>
-              <p>:</p>
+            <div className="text-xl flex flex-row items-start gap-2">
+              <li className="w-1/3 md:h-1/4">Title</li>
+              <p className="w-fit md:text-start text-end">:</p>
               {isLoading ? (
                 <div className="skeleton h-5 w-1/2 bg-zinc-300"></div>
               ) : (
-                <span>{bookData.title}</span>
+                <span className="md:w-full w-2/3">{bookData.title}</span>
               )}
             </div>
             <div className="text-xl flex flex-row items-center gap-2">
-              <li className="w-1/4">Author</li>
-              <p>:</p>
+              <li className="w-1/3 md:h-1/4">Author</li>
+              <p className="w-fit md:text-start text-end">:</p>
               {isLoading ? (
                 <div className="skeleton h-5 w-1/2 bg-zinc-300"></div>
               ) : (
-                <span>{bookData.author}</span>
+                <span className="md:w-full w-2/3">{bookData.author}</span>
               )}
             </div>
             <div className="text-xl flex flex-row items-center gap-2">
-              <li className="w-1/4">Year</li>
-              <p>:</p>
+              <li className="w-1/3 md:h-1/4">Year</li>
+              <p className="w-fit md:text-start text-end">:</p>
               {isLoading ? (
                 <div className="skeleton h-5 w-1/2 bg-zinc-300"></div>
               ) : (
-                <span>{bookData.year}</span>
+                <span className="md:w-full w-2/3">{bookData.year}</span>
               )}
             </div>
           </div>
