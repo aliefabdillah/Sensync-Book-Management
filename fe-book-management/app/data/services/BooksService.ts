@@ -17,7 +17,6 @@ export class BooksService {
         return res.data;
       })
       .catch(function (error) {
-        console.log(error)
         if(error.response) {
           const errorResponse = {
             code: error.response.status,
