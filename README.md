@@ -1,4 +1,4 @@
-# Sensync-Book-Management
+# Sensync Book Management - Alief Muhammad Abdillah
 
 API Documentation : https://documenter.getpostman.com/view/8765062/2sAYJ3Eh7q
 
